@@ -111,9 +111,9 @@ class ForceSensor:
 
     def send_email(self, subject, msg):
         """send_email Sends an email to signal important events"""
-        sender = 'forcesensorraspberry@gmail.com'
+        sender = '###'
         
-        password = 'raspberrypi3'
+        password = '###'
         
         receivers = ['forcesensorraspberry@gmail.com']
         
