@@ -15,7 +15,7 @@ def compute_text(file_name):
 
     :param file_name: path to the file to compute
     """
-    f_text = open(file_name, "r", encoding="utf-16")
+    f_text = open(file_name, "r", encoding="ISO-8859-1")
     is_category = False
     is_title = False
     is_snippet = False
@@ -44,9 +44,9 @@ def compute_text(file_name):
         elif "<\\article>" in i:
             is_article = False
         elif "<nsnippets>" in i:
-            is_article = True
+            is_nsnippets = True
         elif "<\\nsnippets>" in i:
-            is_article = False
+            is_nsnippets = False
         else:
             if is_category:
                 category = i
@@ -61,9 +61,9 @@ def compute_text(file_name):
     f_text.close()
     return [category, l_t, l_s, l_a, nsnippets]
 
-FILES = os.listdir("./20minutes")
+FILES = os.listdir("./20minutos")
 for f_name in FILES:
-    res = compute_text("./20minutes/" + f_name)
+    res = compute_text("./20minutos/" + f_name)
     if res[0] in CATEGORIES:
         CATEGORIES[res[0]] += 1
     else:
@@ -83,4 +83,5 @@ print("There are ", N_SNIPPET_SUM, " snippets which are hand written (",
 print("The mean size of hand written snippets is ", L_SNIPPET_SUM / N_SNIPPET_SUM, " bytes.")
 print("The mean size of the articles is ", L_ARTICLE / len(FILES), " bytes.")
 print("There are ", len(CATEGORIES), "categories, which are:")
-print(" ".join(CATEGORIES))
+for cat in CATEGORIES:
+    print(cat.replace('\n', ''), CATEGORIES[cat])
