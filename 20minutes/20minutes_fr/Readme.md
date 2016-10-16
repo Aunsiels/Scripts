@@ -14,8 +14,11 @@ and follow the instructions.
 ### Balises
 
 **category**: The category of the article on the website
+
 **title**: The title of the article.
+
 **snippet**: A short description of the article which can be used as a summary.
+
 **article**: The actual article.
 
 ### TODO
