@@ -1,2 +1,2 @@
 # Scripts
-Personal useful script
+Personal useful scripts
