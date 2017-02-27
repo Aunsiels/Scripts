@@ -42,10 +42,12 @@ def process2(url, name, parser):
     for thesis in l_edite - previous_thesis:
         print(thesis)
     print(len(l_edite - previous_thesis), "new thesis proposal for", name)
+    print(len(previous_thesis), "previously")
+    print(len(l_edite), "found")
 # EDITE of Paris
 
 process("https://edite-de-paris.fr/spip/spip.php?page=phdproposals", \
-        "edite", \
+                "edite", \
         EDITEHTMLParser())
 
 # INRIA

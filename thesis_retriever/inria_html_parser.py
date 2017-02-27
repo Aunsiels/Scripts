@@ -22,7 +22,7 @@ class INRIAHTMLParser(HTMLThesisParser):
         self.entity = ""
 
     def handle_starttag(self, tag, attrs):
-        if tag == "a0:a":
+        if tag == "a":
             for attr in attrs:
                 if attr[0] == "title" and attr[1] == "Click here to see the job description":
                     self.state = 1
@@ -32,7 +32,7 @@ class INRIAHTMLParser(HTMLThesisParser):
 
 
     def handle_endtag(self, tag):
-        if tag == "a0:a" and self.state == 1:
+        if tag == "a" and self.state == 1:
             self.state = 0
             self.thesis.add(Thesis(self.name, self.description, self.entity))
             self.description = ""
